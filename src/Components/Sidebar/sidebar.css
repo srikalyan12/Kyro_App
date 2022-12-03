@@ -1,0 +1,50 @@
+.sidebar-Wrapper {
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  transition: all ease-in-out 0.3s;
+  height: 100vh;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sidebar-icons-list {
+  height: 80%;
+  transition: all ease-in-out 0.3s;
+}
+
+.sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  transition: all ease-in-out 0.3s;
+}
+
+.sidebar-icons button,
+.sidebar-icons-logout button {
+  padding: 0 20px;
+  position: relative;
+  left: 5px;
+  justify-content: center;
+  transition: all ease-in-out 0.3s;
+  height: 50px;
+}
+.icon-label {
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.icon-label div {
+  font-size: 14px;
+  display: inline;
+}
+.sidebar-icons .hanburger-icon {
+  justify-content: flex-end;
+}
+
+.sidebar-icons .hanburger-icon svg {
+  margin-left: 25px;
+}
+
+.sidebar-icons .list-icon {
+  justify-content: flex-start;
+  padding-left: 50px;
+}
