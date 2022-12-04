@@ -13,7 +13,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
-const ProfileForm = ({ onChange, formfield }) => {
+const ProfileForm = ({ onChange, formfield, onSave, resetForm }) => {
   return (
     <>
       <h3>My Profile</h3>
@@ -129,10 +129,10 @@ const ProfileForm = ({ onChange, formfield }) => {
           </Box>
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-          <Button color="error" variant="contained">
+          <Button color="error" onClick={onSave} variant="contained">
             Save Changes
           </Button>
-          <Button color="error" variant="contained">
+          <Button color="error" onClick={resetForm} variant="contained">
             Reset Changes
           </Button>
         </CardActions>

@@ -1,8 +1,10 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import ProfileForm from "./ProfileForm";
 import ProfilePreview from "./ProfilePreview";
 import Grid from "@mui/material/Grid";
+import { save, fetch } from "./../../Action";
+import { axiosInstance } from "./../../axios";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -18,6 +20,18 @@ class Profile extends React.Component {
       },
     };
     this.onChange = this.onChange.bind(this);
+    this.onSave = this.onSave.bind(this);
+    this.resetForm = this.resetForm.bind(this);
+  }
+
+  async componentDidMount() {
+    const response = await axiosInstance.get("/profile");
+    this.props.fetch(response);
+    this.setState({
+      formfield: {
+        ...response.data,
+      },
+    });
   }
 
   onChange(e) {
@@ -28,12 +42,29 @@ class Profile extends React.Component {
       },
     });
   }
+
+  resetForm() {
+    this.setState({
+      formfield: {
+        ...this.props.profile,
+      },
+    });
+  }
+
+  onSave() {
+    this.props.save({ ...this.state.formfield });
+  }
   render() {
     const { formfield } = this.state;
     return (
       <Grid sx={{ height: "100%" }} container>
         <Grid xs={8}>
-          <ProfileForm formfield={formfield} onChange={this.onChange} />
+          <ProfileForm
+            formfield={formfield}
+            onSave={this.onSave}
+            onChange={this.onChange}
+            resetForm={this.resetForm}
+          />
         </Grid>
         <Grid xs={4} sx={{ backgroundColor: "#f3f3f3" }}>
           <ProfilePreview formfield={formfield} />
@@ -42,4 +73,12 @@ class Profile extends React.Component {
     );
   }
 }
-export default Profile;
+
+const mapStateToProps = (state) => {
+  const newState = {
+    ...state,
+  };
+  return newState;
+};
+
+export default connect(mapStateToProps, { save, fetch })(Profile);
