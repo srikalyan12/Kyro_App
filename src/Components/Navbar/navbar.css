@@ -1,0 +1,11 @@
+.welcome-date {
+  font-size: 14px;
+  color: #b1abab;
+  margin-top: 5px;
+}
+
+.menu-list-format {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

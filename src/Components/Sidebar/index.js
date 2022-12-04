@@ -6,16 +6,10 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 import IconList from "./IconList";
 
+import { iconProps } from "./../../constant";
 import "./sidebar.css";
 
-const Sidebar = (props) => {
-  const { handleShowDraw, showDraw } = props;
-  const propsIconButton = {
-    edge: "start",
-    color: "black",
-    size: "medium",
-    disableRipple: true,
-  };
+const Sidebar = ({ handleShowDraw, showDraw }) => {
   return (
     <div className="sidebar-Wrapper">
       <div className="sidebar-icons sidebar-icons-list">
@@ -26,20 +20,17 @@ const Sidebar = (props) => {
           }}
           size="medium"
           className={showDraw ? "hanburger-icon" : ""}
-          {...propsIconButton}
+          {...iconProps}
         >
           {showDraw && (
             <img src="/kyro.png" alt="logo" height="20px" width="120px" />
           )}
           <MenuIcon height="50px" width="50px" fontSize="medium" />
         </IconButton>
-        <IconList {...props} />
+        <IconList showDraw={showDraw} />
       </div>
       <div className="sidebar-icons">
-        <IconButton
-          className={showDraw ? "list-icon" : ""}
-          {...propsIconButton}
-        >
+        <IconButton className={showDraw ? "list-icon" : ""} {...iconProps}>
           <LogoutRoundedIcon height="50px" width="50px" fontSize="medium" />
           {showDraw && <span className="icon-label">Logout</span>}
         </IconButton>

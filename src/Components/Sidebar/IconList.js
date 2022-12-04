@@ -9,7 +9,6 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
 import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import MailIcon from "@mui/icons-material/Mail";
 
 import { iconProps } from "./../../constant";
 
@@ -41,13 +40,11 @@ const IconList = ({ showDraw }) => {
                 <Badge
                   sx={{
                     fontSize: "12px",
-                    marginLeft: "10px",
+                    marginLeft: "20px",
                   }}
                   color="error"
                   badgeContent={8}
-                >
-                  <MailIcon fontSize="small" />
-                </Badge>
+                ></Badge>
               </span>
             )}
           </span>
